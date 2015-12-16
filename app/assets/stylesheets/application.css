@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+body, h1, td, table, th, li, nav {
+ font-family: 'Cabin Sketch', sans-serif;
+ text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.container { font-family: 'Cabin Sketch', sans-serif; }
+
+body {padding-top: 50px; }
+footer {padding-top: 50px; }
+
