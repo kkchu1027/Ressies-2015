@@ -1,36 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Topics</h1>
+<h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Willpower</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
+  <div style="color: white">
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= link_to topic.title, topic %></td>
-        <td><%= topic.votes.count %></td>
-        <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-        <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button type="button" class="btn btn-success btn-size" style="margin-bottom:4px;white-space: normal;">
+          <%= link_to "#{topic.title}", upvote_topic_path(topic), method: :post, :class => "link-style" %><br />
+          <%= "#{topic.votes.count} success days!" %><br />
+          <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
+
+        </button>
+        </td>
       </tr>
     <% end %>
+  </div>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
-
-<%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
-
- <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
 <%= pie_chart Vote.group(:topic_id).count %>
-<%= column_chart Topic.group(:title).count %>
+<%= column_chart  Vote.includes(:topic).group(:topic_id).count(:title) %>
+
+<%= line_chart @topics.map{|topic|
+    {name: topic.title, data: topic.votes.group(:created_at).count}
+} %>
+
 

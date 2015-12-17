@@ -13,15 +13,54 @@
  *= require_tree .
  *= require_self
  */
-body, h1, td, table, th, li, nav {
+
+@import "font-awesome";
+
+h1 {
  font-family: 'Cabin Sketch', sans-serif;
- text-align: center;
- margin-left: auto;
- margin-right: auto;
 }
 
 .container { font-family: 'Cabin Sketch', sans-serif; }
 
-body {padding-top: 50px; }
-footer {padding-top: 50px; }
+body, table {
+ padding-top: 0px;
+ text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+ background-color: #aaffd5;
+ font-family: 'Cabin Sketch', sans-serif;
+}
+
+footer {padding-top: 5px; }
+
+.btn-size {width: 300px;}
+
+.link-style{
+	color:white;
+	font-size: 24px;
+}
+.link-style:visited {
+	color:white;
+  font-size: 24px;
+}
+
+.navbar-brand-font {
+  font-size: 48px;
+}
+.new-ressie {
+    font-size: 56px;
+    color: #B38B6D;
+}
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+ 
+#{$a-tags} {
+  color: red;
+  text-decoration: none;
+}
+#{$a-tags-hover} {
+  color: yellow;
+  background-color:transparent;
+}
 
