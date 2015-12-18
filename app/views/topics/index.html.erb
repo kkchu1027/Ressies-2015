@@ -3,6 +3,9 @@
 
   <h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
 
+  <h3>It's <%= Date.today.to_s(:heading_date) %></h3>
+  <h2>Did you honor your resolutions today?</h2>
+
     <div style="color: white">
       <% @topics.each do |topic| %>
         <div>
