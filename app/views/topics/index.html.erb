@@ -1,34 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div style="width:40%; background:#fff; padding 5 10 10 20px; margin: 0 auto;">
+  <p id="notice"><%= notice %></p>
 
-<h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
+  <h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
 
-<table>
-  <tbody>
-  <div style="color: white">
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><button type="button" class="btn btn-success btn-size" style="margin-bottom:4px;white-space: normal;">
-          <%= link_to "#{topic.title}", upvote_topic_path(topic), method: :post, :class => "link-style" %><br />
-          <%= "#{topic.votes.count} success days!" %><br />
-          <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
+  <table>
+    <tbody>
+    <div style="color: white">
+      <% @topics.each do |topic| %>
+        <tr>
+          <td><button type="button" class="btn btn-success btn-size" style="margin-bottom:4px;white-space: normal;">
+            <%= link_to "#{topic.title}", upvote_topic_path(topic), method: :post, :class => "link-style" %>
+            <h3><%= "#{topic.votes.count} success days!" %></h3>
+            <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
 
-        </button>
-        </td>
-      </tr>
-    <% end %>
-  </div>
-  </tbody>
-</table>
+          </button>
+          </td>
+        </tr>
+      <% end %>
+    </div>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<%= pie_chart Vote.group(:topic_id).count %>
-<%= column_chart  Vote.includes(:topic).group(:topic_id).count(:title) %>
+  <%= pie_chart Vote.group(:topic_id).count %>
+  <%= column_chart  Vote.includes(:topic).group(:topic_id).count(:title) %>
 
-<%= line_chart @topics.map{|topic|
-    {name: topic.title, data: topic.votes.group(:created_at).count}
-} %>
+  <%= line_chart @topics.map{|topic|
+      {name: topic.title, data: topic.votes.group(:created_at).count}
+  } %>
+</div>
 
 
+<!-- colors: http://encycolorpedia.com/aa8c75 -->
