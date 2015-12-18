@@ -1,34 +1,31 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
-  # GET /topics
-  # GET /topics.json
+  # GET  /topics topics_path
   def index
     @topics = Topic.all
   end
 
-  # GET /topics/1
-  # GET /topics/1.json
+  # GET  /topics/1  topic_path
   def show
   end
 
-  # GET /topics/new
+  # GET  /topics/new  new_topic_path
   def new
     @topic = Topic.new
   end
 
-  # GET /topics/1/edit
+  # GET  /topics/:id/edit  edit_topic_path
   def edit
   end
 
   # POST /topics
-  # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to topics_path, notice: 'Topic was successfully created.' }
+        format.html { redirect_to @topics, notice: 'Topic was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
       else
         format.html { render :new }
@@ -37,12 +34,11 @@ class TopicsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /topics/1
-  # PATCH/PUT /topics/1.json
+  # PATCH/PUT /topics/:id
   def update
     respond_to do |format|
       if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
+        format.html { redirect_to topics_path, notice: 'Topic was successfully updated.' }
         format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
@@ -51,8 +47,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  # DELETE /topics/1
-  # DELETE /topics/1.json
+  # DELETE  /topics/:id
   def destroy
     @topic.destroy
     respond_to do |format|
@@ -61,6 +56,7 @@ class TopicsController < ApplicationController
     end
   end
 
+  # POST  upvote_topic  topics/:id/upvote
   def upvote
     @topic = Topic.find(params[:id])
     @topic.votes.create
