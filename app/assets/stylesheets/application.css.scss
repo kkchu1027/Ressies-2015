@@ -18,6 +18,7 @@
 
 h1 {
  font-family: 'Cabin Sketch', sans-serif;
+ color:#aa8c75;
 }
 
 .container { font-family: 'Cabin Sketch', sans-serif; }
@@ -49,18 +50,18 @@ footer {padding-top: 5px; }
 }
 .new-ressie {
     font-size: 56px;
-    color: #B38B6D;
+    color: #fcd20b;
 }
 
 $a-tags: 'a, a:active, a:hover, a:visited';
 $a-tags-hover: 'a:active, a:hover';
  
 #{$a-tags} {
-  color: red;
+  color: #aa8c75;;
   text-decoration: none;
 }
 #{$a-tags-hover} {
-  color: yellow;
+  color: #fcd20b;
   background-color:transparent;
 }
 
