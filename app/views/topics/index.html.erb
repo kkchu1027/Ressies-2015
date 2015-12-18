@@ -3,24 +3,21 @@
 
   <h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
 
-  <table>
-    <tbody>
     <div style="color: white">
       <% @topics.each do |topic| %>
-        <tr>
-          <td><button type="button" class="btn btn-success btn-size" style="margin-bottom:4px;white-space: normal;">
-            <%= link_to "#{topic.title}", upvote_topic_path(topic), method: :post, :class => "link-style" %>
-            <h3><%= "#{topic.votes.count} success days!" %></h3>
-            <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
+        <div>
+            <%= button_to upvote_topic_path(topic),
+                method: :post, :class => "btn btn-success btn-size" do %>
 
-          </button>
-          </td>
-        </tr>
+              <%= "#{topic.title}" %>
+
+              <h3><%= "#{topic.votes.count} success days!" %></h3>
+
+              <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
+            <% end %>
+          </div>
       <% end %>
     </div>
-    </tbody>
-  </table>
-
   <br>
 
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
