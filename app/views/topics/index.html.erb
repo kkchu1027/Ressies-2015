@@ -1,26 +1,27 @@
 <div style="width:40%; background:#fff; padding 5 10 10 20px; margin: 0 auto;">
-  <p id="notice"><%= notice %></p>
-
-  <h1 class="new-ressie"><%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %></h1>
+  <h1 class="new-ressie">
+    <%= link_to 'New Ressie', new_topic_path, :class => "new-ressie" %>
+  </h1>
 
   <h3>It's <%= Date.today.to_s(:heading_date) %></h3>
   <h2>Did you honor your resolutions today?</h2>
 
-    <div style="color: white">
-      <% @topics.each do |topic| %>
-        <div>
-            <%= button_to upvote_topic_path(topic),
-                method: :post, :class => "btn btn-success btn-size" do %>
+  <div style="color: white">
+    <% @topics.each do |topic| %>
+      <div>
+        <%= button_to upvote_topic_path(topic),
+          method: :post, :class => "btn btn-success btn-size" do %>
 
-              <%= "#{topic.title}" %>
+          <%= "#{topic.title}" %>
 
-              <h3><%= "#{topic.votes.count} success days!" %></h3>
+          <h3><%= "#{topic.votes.count} success days!" %></h3>
 
-              <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
-            <% end %>
-          </div>
-      <% end %>
-    </div>
+          <i class="fa fa-pencil"></i>&nbsp;
+            <%= link_to 'Edit', edit_topic_path(topic) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <br>
 
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
@@ -29,7 +30,7 @@
   <%= column_chart  Vote.includes(:topic).group(:topic_id).count(:title) %>
 
   <%= line_chart @topics.map{|topic|
-      {name: topic.title, data: topic.votes.group(:created_at).count}
+    {name: topic.title, data: topic.votes.group(:created_at).count}
   } %>
 </div>
 

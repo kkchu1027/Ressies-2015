@@ -10,11 +10,8 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cabin+Sketch">
 </head>
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
   <div class="container">
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </div>
 
@@ -23,7 +20,7 @@
       Voting_app 2015
     </div>
   </footer>
-  <script src="//railsgirls.com/assets/bootstrap.js"></script>
 
+  <script src="//railsgirls.com/assets/bootstrap.js"></script>
 </body>
 </html>
