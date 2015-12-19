@@ -4,19 +4,19 @@
 <h2 style="line-height: 30%;">Did you honor your</h2> 
 <h2 style="line-height: 30%;">resolutions today?</h2>
 <br/>
-  <div style="color: white">
-    <% @topics.each do |topic| %>
-      <div>
-          <%= button_to upvote_topic_path(topic),
-              method: :post, :class => "btn btn-success btn-size" do %>
+<div style="color: white">
+  <% @topics.each do |topic| %>
+    <div>
+      <%= button_to upvote_topic_path(topic),
+          method: :post, :class => "btn btn-success btn-size" do %>
 
-            <h3><%= "#{topic.title}" %></h3>
+        <h3><%= "#{topic.title}" %></h3>
 
-            <h3 style = "color: #98ddde;"><%= "#{topic.votes.count} success days!" %></h3>
+        <h3 style = "color: #98ddde;"><%= "#{topic.votes.count} success days!" %></h3>
 
-            <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
-          <% end %>
-        </div>
-        <br/>
-    <% end %>
-  </div>
+        <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
+      <% end %>
+      </div>
+      <br/>
+  <% end %>
+</div>
