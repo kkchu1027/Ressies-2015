@@ -20,7 +20,6 @@ class TopicsController < ApplicationController
   # POST /topics
   def create
     @topic = Topic.new(topic_params)
-
     respond_to do |format|
       if @topic.save
         format.html { redirect_to action: "index" }
