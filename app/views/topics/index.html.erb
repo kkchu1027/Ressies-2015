@@ -10,8 +10,16 @@
       <%= button_to upvote_topic_path(topic),
           method: :post, :class => "btn btn-success btn-size" do %>
 
-        <h3><%= "#{topic.title}" %></h3>
-        <hr/>
+       <h3><%= "#{topic.title}" %></h3>
+
+      <% res=[0] %>
+      <% topic.votes.each do |vote| %>
+        <% res << "#{vote.created_at.strftime("%A, %b %d, %Y")}" %>
+      <% end %>
+    <hr/>
+      <h4><%= "Last upvote: #{res.last}" %></h4>
+
+     <hr/>
         <h3 style = "color: #98ddde;"><%= "#{topic.votes.count} success days!" %></h3>
 
         <i class="fa fa-pencil"></i>&nbsp;<%= link_to 'Edit', edit_topic_path(topic) %>
