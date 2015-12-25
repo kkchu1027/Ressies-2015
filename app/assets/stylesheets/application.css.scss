@@ -30,8 +30,8 @@ h2,h4,h5,h6 {
 
 h3 {
  font-family: 'Cabin Sketch', Arial sans-serif;
- color: #f786b;
- line-height: 50%;
+ color: #fff;
+ line-height: 30px;
 }
 
 .container { font-family: 'Cabin Sketch', Arial sans-serif; }
@@ -49,6 +49,7 @@ footer {padding-top: 5px; }
 
 .btn-size {
   width: 300px;
+  white-space:normal;
 }
 
 .btn-success:focus {
@@ -60,8 +61,8 @@ footer {padding-top: 5px; }
         }
 
 .link-style{
-	color:white;
-	font-size: 24px;
+  color:white;
+  font-size: 24px;
 }
 .link-style:visited {
 	color:white;
