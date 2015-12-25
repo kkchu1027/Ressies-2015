@@ -12,7 +12,7 @@
 
        <h3><%= "#{topic.title}" %></h3>
 
-      <% res=[] %>
+      <% res=[0] %>
       <% topic.votes.each do |vote| %>
         <% res << "#{vote.created_at.strftime("%A, %b %d, %Y")}" %>
       <% end %>

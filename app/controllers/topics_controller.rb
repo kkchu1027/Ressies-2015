@@ -55,11 +55,11 @@ class TopicsController < ApplicationController
   # POST  upvote_topic  topics/:id/upvote
   def upvote
     @topic = Topic.find(params[:id])
-    res = []
+    res = [0]
     @topic.votes.each do |vote|
       res << vote.created_at.strftime("%A, %b %d, %Y")
     end
-    if res.last < Date.today.to_s(:heading_date)
+    if res.last.to_s < Date.today.to_s(:heading_date)
       @topic.votes.create
     end
     redirect_to(topics_path)
