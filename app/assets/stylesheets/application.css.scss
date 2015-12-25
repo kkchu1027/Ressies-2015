@@ -47,7 +47,17 @@ body, table {
 
 footer {padding-top: 5px; }
 
-.btn-size {width: 300px;}
+.btn-size {
+  width: 300px;
+}
+
+.btn-success:focus {
+      background: blue;
+    }
+    
+    .btn-success:active {
+         background: orange; 
+        }
 
 .link-style{
 	color:white;
