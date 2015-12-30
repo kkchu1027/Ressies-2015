@@ -30,8 +30,8 @@ h2,h4,h5,h6 {
 
 h3 {
  font-family: 'Cabin Sketch', Arial sans-serif;
- color: #f786b;
- line-height: 50%;
+ color: #fff;
+ line-height: 30px;
 }
 
 .container { font-family: 'Cabin Sketch', Arial sans-serif; }
@@ -47,11 +47,22 @@ body, table {
 
 footer {padding-top: 5px; }
 
-.btn-size {width: 300px;}
+.btn-size {
+  width: 300px;
+  white-space:normal;
+}
+
+.btn-success:focus {
+      background: blue;
+    }
+    
+    .btn-success:active {
+         background: orange; 
+        }
 
 .link-style{
-	color:white;
-	font-size: 24px;
+  color:white;
+  font-size: 24px;
 }
 .link-style:visited {
 	color:white;
@@ -80,4 +91,9 @@ $a-tags-hover: 'a:active, a:hover';
 
 hr {
   border-top: 2px dotted #f9e03c;
+}
+
+.btn-top {
+   float:right;
+   margin-right:5px;
 }
