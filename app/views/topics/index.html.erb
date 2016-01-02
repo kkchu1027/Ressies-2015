@@ -1,12 +1,11 @@
- <% if current_user %>
+<% if current_user %>
    <%= button_to "Log out", destroy_user_session_path, method: :delete, :class => "btn btn btn-danger btn-top" %>
- <% else %>
-   <%= button_to "Log in", new_user_session_path, method: :get, :class => "btn btn-primary btn-top" %>
-   <%= button_to "Sign up", new_user_registration_path, method: :get, :class => "btn btn-warning btn-top" %>
- <% end %>
+<% else %>
+  <%= button_to "Log in", new_user_session_path, method: :get, :class => "btn btn-primary btn-top" %>
+  <%= button_to "Sign up", new_user_registration_path, method: :get, :class => "btn btn-warning btn-top" %>
+<% end %>
 
-
- <br />
+<hr />
 
 <h1 class="new-ressie"><%= link_to 'Create a New Ressie', new_topic_path, :class => "new-ressie" %></h1>
 <h3 style="color: #79c754; line-height: 30%;">It's <%= Date.today.to_s(:heading_date) %></h3>
