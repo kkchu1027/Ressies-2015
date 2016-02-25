@@ -1,3 +1,3 @@
-#Ressie-2015 is a resolutions app.
+## Pressies
 
-*Update your resolutions everyday to keep track of your progress.*
+written by:
